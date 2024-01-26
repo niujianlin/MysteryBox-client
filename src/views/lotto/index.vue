@@ -3,16 +3,16 @@
     <van-grid class="lottoimg" :gutter="20" :column-num="3">
       <!-- <van-grid-item v-for="value in 12" :key="value" @click="clickResShow()"> -->
       <van-grid-item v-for="value in 12" :key="value">
-        <img src="../../../static/lotto.gif" @click="isLottoResShow = true"
+        <img src="../../../static/lotto.gif" @click="clickResShow()"
       /></van-grid-item>
     </van-grid>
     <van-grid class="lottorecharge" :column-num="2" clickable>
       <van-grid-item @click="isChannelEditShow = true">
-        <div>限时优惠</div>
-        <div>10/20</div>
+        <div class="discount-header">限时优惠</div>
+        <div class="discount-info">10/20</div>
       </van-grid-item>
       <van-grid-item
-        ><div>缤纷豆</div>
+        ><div class="balance">缤纷豆</div>
         <div>50</div></van-grid-item
       >
     </van-grid>
@@ -95,7 +95,7 @@ let isChannelEditShow = ref(false);
 let isLottoResShow = ref(false);
 
 // let ResShow = "../../../static/ceshi/汉服5.webp";
-let ResShow = imgSrc[Number.parseInt(Math.random() * 4)];
+let ResShow = imgSrc[0];
 
 console.log(imgSrc[Number.parseInt(Math.random() * 4)]);
 // let randomImg = ref(imgSrc[Number.parseInt(Math.random() * 4)]);
@@ -108,7 +108,8 @@ console.log(imgSrc[Number.parseInt(Math.random() * 4)]);
 
 let clickResShow = () => {
   console.log("1111111111");
-  let ResShow = imgSrc[Number.parseInt(Math.random() * 4)];
+  isLottoResShow.value = true;
+  ResShow = imgSrc[Number.parseInt(Math.random() * 4)];
 };
 </script>
   
@@ -139,5 +140,14 @@ let clickResShow = () => {
 
   text-align: center;
   font-size: 30px;
+}
+
+.discount-header {
+  color: #1989fa;
+  size: 6px;
+}
+.balance {
+  color: #1989fa;
+  size: 6px;
 }
 </style>
